@@ -1,13 +1,15 @@
 package com.company.categories;
 
-public class Otazka {
+public class Question {
 
- private   String otazka;
- private   String moznost;
- private   String moznost2;
- private   String moznost3;
- private   String moznost4;
- private int spravnaOdpoved;
+ private   String question;
+ private   String option1;
+ private   String option2;
+ private   String option3;
+ private   String option4;
+ private int rightAnswer;
+ private int userAnswer;
+ private int score;
 
 
 }
