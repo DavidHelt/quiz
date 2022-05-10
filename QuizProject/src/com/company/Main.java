@@ -1,6 +1,6 @@
 package com.company;
 import java.util.Scanner;
-import com.company.game.Tools;
+import com.company.game.Game;
 
 public class Main {
 
@@ -9,7 +9,7 @@ public class Main {
         //*create a scanner
         Scanner scanner = new Scanner(System.in);
 
-    Tools t1 = new Tools();
+    Game t1 = new Game();
 
     t1.startGame();
 

@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 public class Games {
 
-    String[] otazky ={  "What is the name of the game where you play as a character named Steve",
-    "What is the name of the game where your goal is to destroy 'Nexus'",
-     "What  bla bla bla"};
+    String[] quiestions = {"What is the name of the game where you play as a character named Steve",
+            "What is the name of the game where your goal is to destroy 'Nexus'",
+            "What  bla bla bla"};
 
-}
 
 
 
