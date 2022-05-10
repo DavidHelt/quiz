@@ -1,11 +1,13 @@
 package com.company.game;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-public class Tools {
+public class Game implements ActionListener {
 
 
-    public Tools() {
+    public Game() {
     }
 
     static Scanner sc = new Scanner(System.in);
@@ -22,15 +24,22 @@ public class Tools {
     }
 
 
-
     public static void startGame() {
         System.out.println("Welcome to the game!");
         System.out.println("Press 1 to start the game");
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
+    }
 
+    public void displayAnswer() {
 
+    }
+    public void results() {
+
+    }
 
 }
