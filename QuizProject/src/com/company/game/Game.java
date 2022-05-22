@@ -7,27 +7,67 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.Scanner;
 import java.util.*;
-import com.company.categories.Question;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
-
 public class Game implements ActionListener {
 
-    private List<Question> questions;
+    private static List<Question> questions;
+
     private int index;
 
-    public Game() {
-    }
-
-   // method for reading json file
-    public void readJson() throws FileNotFoundException {
+    // method for reading json file using List of Question
+public static List<Question> readJsonList() throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader("src/com/company/game/questions.json"));
-        Type listType = new TypeToken<ArrayList<Question>>() {
+        Type QuestionType = new TypeToken<List<Question>>() {
         }.getType();
-        questions = gson.fromJson(reader, listType);
+        questions = gson.fromJson(reader, QuestionType);
+
+        return questions;
+    }
+
+   // generate question indexes
+    public void generateQuestionIndexes() {
+        List<Integer> indexes = new ArrayList<>();
+        for (int i = 0; i < questions.size(); i++) {
+            indexes.add(i);
+        }
+        Collections.shuffle(indexes);
+        this.index = indexes.get(0);
+    }
+
+    // method for generating question
+    public Question generateQuestion() {
+        return questions.get(index);
+    }
+
+    /// method for loading questions
+    public void loadQuestions() throws FileNotFoundException {
+        readJsonList();
+        generateQuestionIndexes();
+    }
+
+// mozna start game metoda???
+    public void startGame() throws FileNotFoundException {
+        readJsonList();
+        generateQuestionIndexes();
+        Question question = questions.get(index);
+        System.out.println(question.getQuestion());
+        System.out.println(question.getOption1());
+        System.out.println(question.getOption2());
+        System.out.println(question.getOption3());
+        System.out.println(question.getOption4());
+        System.out.println("Your answer: ");
+        Scanner scanner = new Scanner(System.in);
+        int userAnswer = scanner.nextInt();
+        if (userAnswer == question.getRightAnswer()) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("Wrong!");
+        }
     }
 
     public Question getRandomQuestion() {
@@ -36,7 +76,7 @@ public class Game implements ActionListener {
         return questions.get(random);
     }
 
-
+/*
     public int getNumberOfQuestions() {
         return questions.size();
     }
@@ -74,21 +114,24 @@ public class Game implements ActionListener {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static int getChoice() {
-        int choice = 0;
-        while (choice < 1 || choice > 4) {
-            System.out.println("Please enter a number between 1 and 3");
-            choice = sc.nextInt();
+   /*method for getting answer from user
+    public String getAnswer() {
+        System.out.println("Enter your answer: ");
+        return sc.nextLine();
+    }*/
 
 
-        }
-        return choice;
-    }
-
-    public static void startGame() {
-        System.out.println("Welcome to the game!");
+    //method for cycling through questions
+    public Question getCurrentQuestion() {
+        return questions.get(index);
 
     }
+
+    //method for getting question number
+    public int getCurrentQuestionNumber() {
+        return index + 1;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -101,5 +144,6 @@ public class Game implements ActionListener {
     public void results() {
 
     }
+
 
 }
