@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 	// write your code here
-        //*create a scanner
+       
         Scanner scanner = new Scanner(System.in);
 
     Game t1 = new Game();
