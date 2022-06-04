@@ -9,7 +9,7 @@ public class CSV_File {
 // method for loading csv file and selecting topic using lambda expressions to shorten the code
  public void start(Topic topic) throws FileNotFoundException {
      questions = new ArrayList<>();
-     String questionPath = "C:\\Users\\DAVID\\Desktop\\QuizProject\\src\\com\\company\\game\\";
+     String questionPath = "C:\\Users\\DAVID\\Desktop\\QuizProject\\src\\com\\company\\CSVFiles\\";
      switch (topic){
          case tv -> {
             questionPath += "tv.csv";
