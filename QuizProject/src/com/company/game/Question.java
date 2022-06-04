@@ -1,127 +1,40 @@
 package com.company.game;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class Question {
 
-    private String question;
-    private String option1;
-    private String option2;
-    private String option3;
-    private String option4;
-    private int rightAnswer;
-    private int userAnswer;
-    private int score;
-/*
-    @Expose
-    private final String question;
-    @SerializedName("A")
+    public Question() {
 
-    private final String option1;
-    @SerializedName("B")
-
-    private final String option2;
-    @SerializedName("C")
-
-    private final String option3;
-    @SerializedName("D")
-
-    private final String option4;
-
-    private final char answer;
-
-*/
-    public Question(String question, String option1, String option2, String option3, String option4, int rightAnswer, int userAnswer) {
-        this.question = question;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-        this.option4 = option4;
-        this.rightAnswer = rightAnswer; //* potreba dodelat
-        this.userAnswer = userAnswer;
+    }
+ // method for printing the rules
+    public void rulesExplanation(){
+        System.out.println("Rules: ");
+        System.out.println("1. You will answer questions from 1 of 3 categories you choose");
+        System.out.println("2. You have to answer A,B,C,D. If you answer wrong or other character than these, you will be penalized by losing score points");
+        System.out.println("3. If you answer wrong, you will lose 100 points. If you answer right, you will get 50 points.\n");
+    }
+    // just an introduction to the game method UwU
+    public void gameIntroduction(){
+        System.out.println("Welcome to the quiz game!\n");
     }
 
+    String s;
+    String s1;
+    String s2;
+    String s3;
+    String s4;
+    String s5;
 
-
-
-
-    public void pickQuestion(){
+    // constructor arrays in startGame()method in class CSV_File
+    public Question(String s, String s1, String s2, String s3, String s4, String s5) {
+        this.s = s;
+        this.s1 = s1;
+        this.s2 = s2;
+        this.s3 = s3;
+        this.s4 = s4;
+        this.s5 = s5;
 
     }
 
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getOption1() {
-        return option1;
-    }
-
-    public void setOption1(String option1) {
-        this.option1 = option1;
-    }
-
-    public String getOption2() {
-        return option2;
-    }
-
-    public void setOption2(String option2) {
-        this.option2 = option2;
-    }
-
-    public String getOption3() {
-        return option3;
-    }
-
-    public void setOption3(String option3) {
-        this.option3 = option3;
-    }
-
-    public String getOption4() {
-        return option4;
-    }
-
-    public void setOption4(String option4) {
-        this.option4 = option4;
-    }
-
-    public int getRightAnswer() {
-        return rightAnswer;
-    }
-
-    public void setRightAnswer(int rightAnswer) {
-        this.rightAnswer = rightAnswer;
-    }
-
-    public int getUserAnswer() {
-        return userAnswer;
-    }
-
-    public void setUserAnswer(int userAnswer) {
-        this.userAnswer = userAnswer;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-
-    public Object getAnswer() {
-        return null;
-    }
-
-    public int getDifficulty() {
-        return 1;
-
-    }
 }
+
