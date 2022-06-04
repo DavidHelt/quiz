@@ -14,11 +14,11 @@ public class Game {
         this.user = user;
     }
 
-
     private int score;
     //method for starting the game
 
     public void startGame(ArrayList<Question> questionsIn) {
+        Random rand = new Random();
         score = 0;
         ArrayList<Question> questions = questionsIn;
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +33,19 @@ public class Game {
             System.out.println("Invalid input, only numbers are allowed");
             return;
         }
-        for (int i = 0; i < count; i++) {
+        boolean sameAsLast = false; // flag for checking if the user entered the same question as the last one
+        int i;
+        int last = 0;
+       for(int a = 0;a < count; a++){
+
+           if(sameAsLast){ // if the user entered the same question as the last one, the program will ask for a new question
+               i = last;
+               sameAsLast = false;
+
+           }else{
+            i = rand.nextInt(count);
+            sameAsLast = false;
+           }
 
             System.out.println("Your score: " + score + "\n");
             System.out.println(questions.get(i).s + "\nEnter your answer: ");
@@ -44,19 +56,28 @@ public class Game {
                 if (userAnswer.equalsIgnoreCase(questions.get(i).s5)) {
                     System.out.println("CORRECT ANSWER! +50 points");
                     score += 50;
+                    questions.remove(i);
+
                 } else if (userAnswer.equalsIgnoreCase("exit")) {
                     System.out.println("You are ending the game early");
                     break;
                 } else {
+                    questions.remove(i);
                     score -= 50;
                     System.out.println("WRONG ANSWER, -50 points");
                     System.out.println("The correct answer is: " + questions.get(i).s5);
+
                 }
             } else {
-                i--;
+                last = i;
+                sameAsLast = true;
+                a--;
+
                 System.out.println("Invalid input, only A,B,C,D are allowed");
             }
+
         }
+
         System.out.println("End of the game, your score: " + score);
         user.setScore(score);
         scores.addScore(user);

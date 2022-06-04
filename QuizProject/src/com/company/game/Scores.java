@@ -25,7 +25,7 @@ public class Scores implements Serializable {
     public void saveScore() {
         try {
             //Creating stream and writing the object
-            FileOutputStream fout = new FileOutputStream("C:\\Users\\DAVID\\Desktop\\QuizProject\\src\\com\\company\\game\\scores.ser");
+            FileOutputStream fout = new FileOutputStream("src/com/company/game/scores.ser/");
             
             ObjectOutputStream out = new ObjectOutputStream(fout);
             out.writeObject(this);
@@ -42,11 +42,9 @@ public class Scores implements Serializable {
     // loading file with user's score
     public Scores loadScore() throws IOException, ClassNotFoundException {
 
-        ObjectInputStream in=new ObjectInputStream(new FileInputStream("C:\\Users\\DAVID\\Desktop\\QuizProject\\src\\com\\company\\game\\scores.ser"));
+        ObjectInputStream in=new ObjectInputStream(new FileInputStream("src/com/company/game/scores.ser/"));
         Scores s=(Scores)in.readObject();  
         return s;
-
-            
     }
 
 }
