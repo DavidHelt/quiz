@@ -43,7 +43,7 @@ public class Game {
                sameAsLast = false;
 
            }else{
-            i = rand.nextInt(count);
+            i = rand.nextInt(questions.size());
             sameAsLast = false;
            }
 
@@ -51,7 +51,8 @@ public class Game {
             System.out.println(questions.get(i).s + "\nEnter your answer: ");
             System.out.println("Options:\n " + questions.get(i).s1 + "\n " + questions.get(i).s2 + "\n " + questions.get(i).s3 + "\n " + questions.get(i).s4);
             String userAnswer = scanner.next();
-            if (userAnswer.equalsIgnoreCase("a") || userAnswer.equalsIgnoreCase("b") || userAnswer.equalsIgnoreCase("c") || userAnswer.equalsIgnoreCase("d")) {
+            if (userAnswer.equalsIgnoreCase("a") || userAnswer.equalsIgnoreCase("b") ||
+                    userAnswer.equalsIgnoreCase("c") || userAnswer.equalsIgnoreCase("d") || userAnswer.equalsIgnoreCase("exit")) {
 
                 if (userAnswer.equalsIgnoreCase(questions.get(i).s5)) {
                     System.out.println("CORRECT ANSWER! +50 points");
@@ -62,10 +63,11 @@ public class Game {
                     System.out.println("You are ending the game early");
                     break;
                 } else {
-                    questions.remove(i);
+
                     score -= 50;
                     System.out.println("WRONG ANSWER, -50 points");
                     System.out.println("The correct answer is: " + questions.get(i).s5);
+                    questions.remove(i);
 
                 }
             } else {
