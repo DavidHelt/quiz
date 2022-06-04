@@ -11,18 +11,20 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         // wrapping the game in while cycle to allow the user to play again
-        while(true){
-        Menu.start();
-        System.out.println("Do you wanna try again? enter yes to try again and no to exit");
-        Scanner scan = new Scanner(System.in);
-        String answer = scan.nextLine();
-        if(answer.equals("no")){
-            System.out.println("Thank you for playing >.<");
-            break;
-        }
-        }
+        while (true) {
+            Menu.start();
+            System.out.println("Do you want to try again? Type yes to continue");
+            Scanner scan = new Scanner(System.in);
+            String answer = scan.nextLine();
+            if (answer.equals("yes")) {
+                System.out.println("Here we go again >.< \n");
+
+            } else {
+                System.out.println("Thank you for playing >.<");
+                break;
+            }
 
 
         }
     }
-
+}

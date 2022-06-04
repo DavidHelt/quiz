@@ -10,8 +10,8 @@ public class Question {
     public void rulesExplanation(){
         System.out.println("Rules: ");
         System.out.println("1. You will answer questions from 1 of 3 categories you choose");
-        System.out.println("2. You have to answer A,B,C,D. If you answer wrong or other character than these, you will be penalized by losing score points");
-        System.out.println("3. If you answer wrong, you will lose 100 points. If you answer right, you will get 50 points.\n");
+        System.out.println("2. If you answer wrong, you will lose 50 points. If you answer right, you will get 50 points.");
+        System.out.println("3. If you want to exit the game early, you can type 'exit' to leave the quiz.\n");
     }
     // just an introduction to the game method UwU
     public void gameIntroduction(){
